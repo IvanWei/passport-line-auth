@@ -1,0 +1,30 @@
+{
+  "name": "passport-line-auth",
+  "version": "0.0.1",
+  "description": "Line Authentication Strategy for Passport",
+  "main": "./lib",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/IvanWei/passport-line-auth.git"
+  },
+  "keywords": [
+    "line",
+    "passport"
+  ],
+  "author": "Ivan Wei <scorpionseed@gmail.com> (https://blog.ivanwei.co)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IvanWei/passport-line-auth/issues"
+  },
+  "homepage": "https://github.com/IvanWei/passport-line-auth#readme",
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "dependencies": {
+    "passport-oauth2": "^1.4.0",
+    "shortid": "^2.2.6"
+  }
+}
