@@ -42,4 +42,4 @@ passport.use(new LineStrategy({
 
 [The MIT License](https://raw.githubusercontent.com/ivanwei/passport-line-auth/master/LICENSE)
 
-Copyright (c) 2017 Ivan Wei <https://blog.ivanwei.co/>
+Copyright (c) 2017 Ivan Wei <[https://blog.ivanwei.co/](https://blog.ivanwei.co/)>
