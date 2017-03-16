@@ -22,6 +22,7 @@ The LINE authentication strategy authenticates users using a LINE account and OA
 passport.use(new LineStrategy({
     channelID: LINE_CHANNEL_ID,
     channelSecret: LINE_CHANNEL_SECRET,
+    useAutoLogin: true, // Default true
     callbackURL: "http://localhost:3000/auth/line/callback"
   },
   function(accessToken, refreshToken, profile, cb) {

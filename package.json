@@ -1,6 +1,6 @@
 {
   "name": "passport-line-auth",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Line Authentication Strategy for Passport",
   "main": "./lib",
   "scripts": {
@@ -24,6 +24,7 @@
     "node": ">= 0.4.0"
   },
   "dependencies": {
-    "passport-oauth2": "^1.4.0"
+    "passport-oauth2": "^1.4.0",
+    "shortid": "^2.2.8"
   }
 }
