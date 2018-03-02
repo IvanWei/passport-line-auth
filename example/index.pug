@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Example
+  body
+    if (!user)
+      h1 Welcome!
+      a(href="/login/line") Log In with LINE
+    else
+      h1 Hello, #{user.displayName}.
+      h2 View your profile
+      p Provider: #{user.provider}
+      p ID: #{user.id}
+      p Pictrue:
+        img(src=user._json.pictureUrl width="100px")
+

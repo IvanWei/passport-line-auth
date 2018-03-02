@@ -1,18 +1,25 @@
 # passport-line-auth
 
-Passport strategy for authenticating with LINE using the OAuth 2.0 API.
+Passport strategy for authenticating with LINE using the OAuth 2.0 API and OpenID Connect.
 
-## Install
+## How to Install
+### npm
 
 ```
-$ npm install passport-line-auth
+npm install passport-line-auth --save
+```
+
+### Yarns
+
+```
+yarn add passport-line-auth
 ```
 
 ## Usage
 
 ### Create an Service
 
-Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at [LINE Business Center](https://business.line.me/zh-hant/). Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.
+Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at [LINE Developers](https://developers.line.me/console/register/line-login/provider/). Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.
 
 ### Configure Strategy
 
@@ -22,7 +29,7 @@ The LINE authentication strategy authenticates users using a LINE account and OA
 passport.use(new LineStrategy({
     channelID: LINE_CHANNEL_ID,
     channelSecret: LINE_CHANNEL_SECRET,
-    useAutoLogin: true, // Default true
+    useAutoLogin: true,
     callbackURL: "http://localhost:3000/auth/line/callback"
   },
   function(accessToken, refreshToken, profile, cb) {
@@ -33,14 +40,18 @@ passport.use(new LineStrategy({
 ));
 ```
 
+### Exmaple
+
+First time, you must set channel id, secret and redirect uri at `example/app.js`, then install packages and `npm start`.
+
 ## Reference
 
 - [passport-oauth2](https://github.com/jaredhanson/passport-oauth2)
 - [passport-facebook](https://github.com/jaredhanson/passport-facebook)
-- [LINE Web Login](https://developers.line.me/web-api/integrating-web-login-v2)
+- [LINE Web Login](https://developers.line.me/en/docs/line-login/web/integrate-line-login/)
 
 ## License
 
 [The MIT License](https://raw.githubusercontent.com/ivanwei/passport-line-auth/master/LICENSE)
 
-Copyright (c) 2017 Ivan Wei <[https://blog.ivanwei.co/](https://blog.ivanwei.co/)>
+Copyright(c) Ivan Wei <[https://blog.ivanwei.co/](https://blog.ivanwei.co/)>

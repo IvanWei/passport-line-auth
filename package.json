@@ -1,10 +1,11 @@
 {
   "name": "passport-line-auth",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Line Authentication Strategy for Passport",
   "main": "./lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./example/app.js"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,12 @@
   "dependencies": {
     "passport-oauth2": "^1.4.0",
     "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "passport": "^0.4.0",
+    "pug": "^2.0.0-rc.4"
   }
 }
