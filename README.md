@@ -9,7 +9,7 @@ Passport strategy for authenticating with LINE using the OAuth 2.0 API and OpenI
 npm install passport-line-auth --save
 ```
 
-### Yarns
+### Yarn
 
 ```
 yarn add passport-line-auth
