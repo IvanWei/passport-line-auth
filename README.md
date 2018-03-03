@@ -44,7 +44,7 @@ passport.use(new LineStrategy({
 ### Options
 
 | Parameter | Type | Required | Default | description |
-|---|---|---|---|
+|---|---|---|---|---|
 | channelID | String | Required | | Channel's Id by LINE |
 | channelSecret | String | Required | | Channel's secret by LINE |
 | callbackURL | String | Required | | URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the [console](https://developers.line.me/console/). |
