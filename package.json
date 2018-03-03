@@ -25,8 +25,7 @@
     "node": ">= 0.4.0"
   },
   "dependencies": {
-    "passport-oauth2": "^1.4.0",
-    "shortid": "^2.2.8"
+    "passport-oauth2": "^1.4.0"
   },
   "devDependencies": {
     "body-parser": "^1.18.2",

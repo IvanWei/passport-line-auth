@@ -11,7 +11,8 @@ passport.use(new LineStrategy({
   channelID: '[Your LINE\'s channel ID]',
   channelSecret: '[Your LINE\'s channel Secret]',
   callbackURL: 'http://[Your domain]/login/line/return',
-  useAutoLogin: true,
+  scope: ['profile', 'openid'],
+  botPrompt: 'normal'
 },
 function(accessToken, refreshToken, profile, cb) {
   return cb(null, profile);

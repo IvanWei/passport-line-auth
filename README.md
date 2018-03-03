@@ -29,8 +29,9 @@ The LINE authentication strategy authenticates users using a LINE account and OA
 passport.use(new LineStrategy({
     channelID: LINE_CHANNEL_ID,
     channelSecret: LINE_CHANNEL_SECRET,
-    useAutoLogin: true,
-    callbackURL: "http://localhost:3000/auth/line/callback"
+    callbackURL: "http://localhost:3000/auth/line/callback",
+    scope: ['profile', 'openid'],
+    botPrompt: 'normal'
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ lineId: profile.id }, function (err, user) {
@@ -39,6 +40,16 @@ passport.use(new LineStrategy({
   }
 ));
 ```
+
+### Options
+
+| Parameter | Type | Required | Default | description |
+|---|---|---|---|
+| channelID | String | Required | | Channel's Id by LINE |
+| channelSecret | String | Required | | Channel's secret by LINE |
+| callbackURL | String | Required | | URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the [console](https://developers.line.me/console/). |
+| scope | Array | Required | `['profile', 'openid']` | Permissions granted by the user. Set value to either profile, openid or email. |
+| botPrompt | String | Optional | 'null' | Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.me/en/docs/line-login/web/link-a-bot). |
 
 ### Exmaple
 
