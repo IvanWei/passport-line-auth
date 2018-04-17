@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const LineStrategy = require('../lib').Strategy;
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
@@ -11,10 +12,12 @@ passport.use(new LineStrategy({
   channelID: '[Your LINE\'s channel ID]',
   channelSecret: '[Your LINE\'s channel Secret]',
   callbackURL: 'http://[Your domain]/login/line/return',
-  scope: ['profile', 'openid'],
+  scope: ['profile', 'openid', 'email'],
   botPrompt: 'normal'
 },
-function(accessToken, refreshToken, profile, cb) {
+function(accessToken, refreshToken, params, profile, cb) {
+  const {email} = jwt.decode(params.id_token);
+  profile.email = email;
   return cb(null, profile);
 }));
 

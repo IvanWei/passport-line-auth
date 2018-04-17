@@ -4,7 +4,6 @@
   "description": "Line Authentication Strategy for Passport",
   "main": "./lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./example/app.js"
   },
   "repository": {
@@ -32,6 +31,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.2.1",
     "passport": "^0.4.0",
     "pug": "^2.0.0-rc.4"
   }
