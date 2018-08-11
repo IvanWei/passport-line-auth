@@ -1,5 +1,7 @@
 # passport-line-auth
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/IvanWei/passport-line-auth.svg)](https://greenkeeper.io/)
+
 Passport strategy for authenticating with LINE using the OAuth 2.0 API and OpenID Connect.
 
 ## How to Install
