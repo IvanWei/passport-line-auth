@@ -7,7 +7,7 @@
     "start": "node ./example/app.js",
     "test": "ava --verbose",
     "coverage": "rm -rf .nyc_output && nyc ava",
-    "codecov": "rm -rf .nyc_output && nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "demo": "node ./example/app.js"
   },
   "repository": {
