@@ -27,8 +27,8 @@ passport.deserializeUser(function(obj, cb) {cb(null, obj);});
 
 // Use application-level middleware for common functionality, including
 // parsing, and session handling.
-app.use(require('body-parser').urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard dog', resave: true, saveUninitialized: true }));
+app.use(require('body-parser').urlencoded({extended: true}));
+app.use(require('express-session')({secret: 'keyboard dog', resave: true, saveUninitialized: true}));
 
 // Initialize Passport and restore authentication state, if any, from the session.
 app.use(passport.initialize());
@@ -42,7 +42,7 @@ app.get('/', function(req, res) {
 app.get('/login/line', passport.authenticate('line'));
 
 app.get('/login/line/return',
-  passport.authenticate('line', { failureRedirect: '/' }),
+  passport.authenticate('line', {failureRedirect: '/'}),
   function(req, res) {
     res.redirect('/');
   });
