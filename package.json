@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./example/app.js",
     "test": "npx ava --verbose",
-    "coverage": "nyc ava",
+    "coverage": "rm -rf .nyc_output && nyc ava",
+    "codecov": "rm -rf .nyc_output && nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "demo": "node ./example/app.js"
   },
   "repository": {
@@ -36,6 +37,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "body-parser": "^1.18.2",
+    "codecov": "^3.0.4",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.2.1",
