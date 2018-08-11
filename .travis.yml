@@ -1,0 +1,27 @@
+language: node_js
+sudo: false
+node_js:
+  - '6'
+  - '8'
+  - '10'
+cache: yarn
+before_install:
+  - export TZ=Asia/Taipei
+  - openssl aes-256-cbc -K $encrypted_f91801d319b3_key -iv $encrypted_f91801d319b3_iv
+    -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - rm -rf .deploy_git
+  - cp .travis/ssh_config ~/.ssh/config
+  - git config --global user.name "WE Bot"
+  - git config --global user.email "ivanwei_slack@outlook.com"
+install:
+  - yarn install
+script:
+  - npm test
+after_success:
+  - npm run codecov
+branches:
+  except:
+  - master
