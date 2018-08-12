@@ -1,9 +1,9 @@
 language: node_js
 sudo: required
 node_js:
-  - '6'
-  - '8'
-  - '10'
+  - "6"
+  - "8"
+  - "10"
 cache: yarn
 before_install:
   - openssl aes-256-cbc -K $encrypted_f91801d319b3_key -iv $encrypted_f91801d319b3_iv
@@ -14,19 +14,11 @@ before_install:
   - cp .travis/ssh_config ~/.ssh/config
   - git config --global user.name "WE Bot"
   - git config --global user.email "ivanwei_slack@outlook.com"
-install: true
-
-stages:
-  - Tests
-  - Codecov
+install:
+  - yarn install
 
 jobs:
   include:
-    - stage: "Tests"
-      name: "Unit Tests"
-      script:
-        - npm test
-        - npm run coverage
     - stage: "Codecov"
       name: "Update Codecov"
       node_js: "10"
