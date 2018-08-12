@@ -14,14 +14,21 @@ before_install:
   - cp .travis/ssh_config ~/.ssh/config
   - git config --global user.name "WE Bot"
   - git config --global user.email "ivanwei_slack@outlook.com"
-install:
-  - npm install -g yarn
-  - yarn install
-script:
-  - npm test
-  - npm run coverage
-after_success:
-  - npm run codecov
-branches:
-  except:
-  - master
+install: true
+
+stages:
+  - Tests
+  - Codecov
+
+jobs:
+  include:
+    - stage: "Tests"
+      name: "Unit Tests"
+      script:
+        - npm test
+        - npm run coverage
+    - stage: "Codecov"
+      name: "Update Codecov"
+      node_js: "10"
+      script:
+        - npm run codecov
