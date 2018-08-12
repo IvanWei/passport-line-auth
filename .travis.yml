@@ -15,7 +15,6 @@ before_install:
 install:
   - yarn install
 script:
-  - npm test
   - npm run coverage
 jobs:
   include:
