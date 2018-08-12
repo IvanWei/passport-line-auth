@@ -23,6 +23,7 @@ jobs:
       script:
         - npm run codecov
     - stage: "Deploy to npm package"
+      node_js: "10"
       if: branch = master
-      script:
-        - echo 'test'
+        script:
+          - echo 'test'
