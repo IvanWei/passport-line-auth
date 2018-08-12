@@ -1,5 +1,5 @@
 language: node_js
-sudo: required
+sudo: false
 node_js:
   - "6"
   - "8"
@@ -17,8 +17,15 @@ install:
 
 jobs:
   include:
+    - stage: "Tests"
+      name: "Unit Tests"
+      node_js: "10"
+      script:
+        - npm test
+        - npm run coverage
     - stage: "Codecov"
       name: "Update Codecov"
+      sudo: required
       node_js: "10"
       script:
         - npm run codecov
