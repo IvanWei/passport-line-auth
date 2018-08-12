@@ -18,11 +18,12 @@ before_install:
 install:
   - npm install -g yarn
   - yarn install
-script:
-  - npm test
-  - npm run coverage
-after_success:
-  - npm run codecov
-branches:
-  except:
-  - master
+
+jobs:
+  include:
+    - stage: test
+      script: npm test
+    - script: npm run coverage
+    - stage: Deploy coverage to Codecov
+      node_js: '10'
+      script: npm run codecov
