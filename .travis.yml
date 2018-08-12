@@ -14,15 +14,11 @@ before_install:
   - npm install -g yarn
 install:
   - yarn install
-
+script:
+  - npm test
+  - npm run coverage
 jobs:
   include:
-    - stage: "Tests"
-      name: "Unit Tests"
-      node_js: "10"
-      script:
-        - npm test
-        - npm run coverage
     - stage: "Codecov"
       name: "Update Codecov"
       sudo: required
