@@ -4,6 +4,7 @@ node_js:
   - '6'
   - '8'
   - '10'
+cache: yarn
 before_install:
   - export TZ=Asia/Taipei
   - openssl aes-256-cbc -K $encrypted_f91801d319b3_key -iv $encrypted_f91801d319b3_iv
@@ -11,19 +12,17 @@ before_install:
   - chmod 600 ~/.ssh/id_rsa
   - eval $(ssh-agent)
   - ssh-add ~/.ssh/id_rsa
-  - rm -rf .deploy_git
   - cp .travis/ssh_config ~/.ssh/config
   - git config --global user.name "WE Bot"
   - git config --global user.email "ivanwei_slack@outlook.com"
 install:
-  - npm install -g yarn
   - yarn install
 
 jobs:
   include:
     - stage: test
       script: npm test
-    - script: npm run coverage
+      script: npm run coverage
     - stage: Deploy coverage to Codecov
       node_js: '10'
       script: npm run codecov
