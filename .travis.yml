@@ -24,11 +24,11 @@ jobs:
       sudo: required
       script:
         - npm run coverage
+      after_success:
         - npm run codecov
     - stage: "Deploy"
       name: "Deploy to npm package"
       node_js: "8"
       if: branch = master
         script:
-          -
           - echo 'test'
