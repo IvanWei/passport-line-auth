@@ -1,16 +1,16 @@
 language: node_js
-sudo: false
+sudo: required
 node_js:
   - "6"
   - "8"
   - "10"
 before_install:
-  - openssl aes-256-cbc -K $encrypted_f91801d319b3_key -iv $encrypted_f91801d319b3_iv
-    -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa
-  - eval $(ssh-agent)
-  - ssh-add ~/.ssh/id_rsa
-  - cp .travis/ssh_config ~/.ssh/config
+  # - openssl aes-256-cbc -K $encrypted_f91801d319b3_key -iv $encrypted_f91801d319b3_iv
+  #   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  # - chmod 600 ~/.ssh/id_rsa
+  # - eval $(ssh-agent)
+  # - ssh-add ~/.ssh/id_rsa
+  # - cp .travis/ssh_config ~/.ssh/config
   - npm install -g yarn
 install:
   - yarn install
@@ -20,9 +20,8 @@ jobs:
   include:
     - stage: "Codecov"
       name: "Update Codecov"
-      sudo: required
-      node_js: "10"
+      node_js: "8"
       script:
         - npm run codecov
-    - stage: "Deploy to npm package"
-      node_js: "10"
+    # - stage: "Deploy to npm package"
+    #   node_js: "8"
