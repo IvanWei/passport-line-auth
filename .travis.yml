@@ -25,5 +25,8 @@ jobs:
       script:
         - npm run coverage
         - npm run codecov
-    # - stage: "Deploy to npm package"
-    #   node_js: "8"
+    - stage: "Deploy to npm package"
+      # if: branch = master
+      node_js: "8"
+      script:
+        - echo 'test'
