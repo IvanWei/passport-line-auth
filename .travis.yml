@@ -18,7 +18,7 @@ script:
   - npm run coverage
 jobs:
   include:
-    - stage: "Codecov"
+    - stage: "codecov"
       name: "Update Codecov"
       node_js: "8"
       sudo: required
@@ -26,9 +26,13 @@ jobs:
         - npm run coverage
       after_success:
         - npm run codecov
-    - stage: "Deploy"
+    - stage: "deploy"
       name: "Deploy to npm package"
       node_js: "8"
-      if: branch = master
       script:
         - echo 'test'
+
+stages:
+  - codecov
+  - name: deploy
+    if: branch = master
