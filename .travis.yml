@@ -26,7 +26,8 @@ jobs:
         - npm run coverage
       after_success:
         - npm run codecov
-    - stage: "deploy"
+    - if: branch = master
+      stage: "deploy"
       name: "Deploy to npm package"
       node_js: "8"
       branches:
