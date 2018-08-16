@@ -30,13 +30,11 @@ jobs:
       stage: "deploy"
       name: "Deploy to npm package"
       node_js: "8"
-      branches:
-        only:
-          - master
       script:
         - echo 'test'
 
 stages:
   - test
   - codecov
-  - deploy
+  - name: deploy
+    if: branch = master
