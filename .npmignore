@@ -1,7 +1,8 @@
-.*.swp
+git d.*.swp
 ._*
 .DS_Store
 .git
+.github
 .hg
 .npmrc
 .lock-wscript
@@ -10,5 +11,6 @@
 config.gypi
 CVS
 npm-debug.log
+yarn-error.log
 
-example
+example/
