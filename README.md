@@ -1,6 +1,12 @@
 # passport-line-auth
 
-[![Build Status](https://travis-ci.org/IvanWei/passport-line-auth.svg?branch=master)](https://travis-ci.org/IvanWei/passport-line-auth) [![codecov](https://codecov.io/gh/IvanWei/passport-line-auth/branch/master/graph/badge.svg)](https://codecov.io/gh/IvanWei/passport-line-auth) [![Greenkeeper badge](https://badges.greenkeeper.io/IvanWei/passport-line-auth.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/IvanWei/passport-line-auth.svg?branch=master)](https://travis-ci.org/IvanWei/passport-line-auth)
+[![codecov](https://codecov.io/gh/IvanWei/passport-line-auth/branch/master/graph/badge.svg)](https://codecov.io/gh/IvanWei/passport-line-auth)
+[![Greenkeeper badge](https://badges.greenkeeper.io/IvanWei/passport-line-auth.svg)](https://greenkeeper.io/)
+
+[![NPM](https://nodei.co/npm/passport-line-auth.png)](https://nodei.co/npm/passport-line-auth/)
+
+[![Package Quality](http://npm.packagequality.com/badge/passport-line-auth.png)](http://packagequality.com/#?package=passport-line-auth)
 
 Passport strategy for authenticating with LINE using the OAuth 2.0 API and OpenID Connect.
 
