@@ -46,8 +46,6 @@ test('[Failure] Constructed with missing for something', (t) => {
 });
 
 test('[Pass] Checked authenticate', (t) => {
-  t.log('This is not best testing');
-
   let req = new http.IncomingMessage();
   const self = {
     error: function(error) {return error;},
@@ -61,6 +59,32 @@ test('[Pass] Checked authenticate', (t) => {
     channelID: 'fakeId',
     channelSecret: 'fakeSecret',
     callbackURL: 'http://fake.domain',
+    botPrompt: 'null'
+  };
+
+  const strategy = new LineStrategy(options, () => {});
+  self.authorizationParams = strategy.authorizationParams;
+  const response = strategy.authenticate.bind(self, req, options)(req, options);
+
+  t.is(response, undefined);
+});
+
+
+test('[Pass] Checked authenticate, skip state on options', (t) => {
+  let req = new http.IncomingMessage();
+  const self = {
+    error: function(error) {return error;},
+    _oauth2: {
+      _authorizeUrl: 'http://test.com',
+      _accessTokenUrl: 'http://test.com',
+      _clientId: 'fakeId',
+    },
+  }
+  const options = {
+    channelID: 'fakeId',
+    channelSecret: 'fakeSecret',
+    callbackURL: 'http://fake.domain',
+    state: 'test',
     botPrompt: 'null'
   };
 
