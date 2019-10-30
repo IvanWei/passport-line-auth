@@ -3,6 +3,7 @@ sudo: false
 node_js:
   - "8"
   - "10"
+  - "12"
 before_install:
   # - openssl aes-256-cbc -K $encrypted_f91801d319b3_key -iv $encrypted_f91801d319b3_iv
   #   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
