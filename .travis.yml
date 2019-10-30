@@ -36,5 +36,3 @@ jobs:
 stages:
   - test
   - codecov
-  - name: deploy
-    if: branch = master
