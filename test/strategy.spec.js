@@ -123,7 +123,7 @@ test('Set authorization params (botPrompt: null)', (t) => {
     channelID: 'fakeId',
     channelSecret: 'fakeSecret',
     callbackURL: 'http://fake.domain',
-    botPrompt: 'null'
+    botPrompt: null
   };
 
   const strategy = new LineStrategy(options, () => {});
@@ -144,6 +144,34 @@ test('Set authorization params (botPrompt: normal)', (t) => {
   const newOptions = strategy.authorizationParams(options);
 
   t.is(newOptions.bot_prompt, options.botPrompt);
+});
+
+test('Set authorization params (uiLocales: null)', (t) => {
+  const options = {
+    channelID: 'fakeId',
+    channelSecret: 'fakeSecret',
+    callbackURL: 'http://fake.domain',
+    uiLocales: null
+  };
+
+  const strategy = new LineStrategy(options, () => {});
+  const newOptions = strategy.authorizationParams(options);
+
+  t.is(newOptions.ui_locales, undefined);
+});
+
+test('Set authorization params (uiLocales: en-US)', (t) => {
+  const options = {
+    channelID: 'fakeId',
+    channelSecret: 'fakeSecret',
+    callbackURL: 'http://fake.domain',
+    uiLocales: 'en-US'
+  };
+
+  const strategy = new LineStrategy(options, () => {});
+  const newOptions = strategy.authorizationParams(options);
+
+  t.is(newOptions.ui_locales, options.uiLocales);
 });
 
 test('[Pass] Loading user profile (No email)', (t) => {
