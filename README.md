@@ -27,7 +27,7 @@ yarn add passport-line-auth
 
 ### Create an Service
 
-Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at [LINE Developers](https://developers.line.me/console/register/line-login/provider/). Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.
+Before using passport-line-auth, you must register an Services with LINE. If you have not already done so, a new services can be created at [LINE Developers](https://developers.line.biz/console/register/line-login/provider/). Your service will be issued an channel ID and channel secret, which need to be provided to the strategy. You will also need to configure a redirect URI which matches the route in your service.
 
 ### Configure Strategy
 
@@ -40,7 +40,8 @@ passport.use(new LineStrategy({
     channelSecret: LINE_CHANNEL_SECRET,
     callbackURL: "http://localhost:3000/auth/line/callback",
     scope: ['profile', 'openid'],
-    botPrompt: 'normal'
+    botPrompt: 'normal',
+    uiLocales: 'en-US',
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({ lineId: profile.id }, function (err, user) {
@@ -57,7 +58,8 @@ passport.use(new LineStrategy({
     channelSecret: LINE_CHANNEL_SECRET,
     callbackURL: "http://localhost:3000/auth/line/callback",
     scope: ['profile', 'openid', 'email'],
-    botPrompt: 'normal'
+    botPrompt: 'normal',
+    uiLocales: 'en-US',
   },
   function(accessToken, refreshToken, params, profile, cb) {
     var email = jwt.decode(params.id_token)
@@ -74,9 +76,10 @@ passport.use(new LineStrategy({
 |---|---|---|---|---|
 | channelID | String | Required | | Channel's Id by LINE |
 | channelSecret | String | Required | | Channel's secret by LINE |
-| callbackURL | String | Required | | URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the [console](https://developers.line.me/console/). |
+| callbackURL | String | Required | | URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the [console](https://developers.line.biz/console/). |
 | scope | Array | Required | `['profile', 'openid']` | Permissions granted by the user. Set value to either profile, openid or email. If  |
-| botPrompt | String | Optional | 'null' | Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.me/en/docs/line-login/web/link-a-bot). |
+| botPrompt | String | Optional | null | Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/web/link-a-bot). |
+| uiLocales | String | Optional | null | Display language for LINE Login screens. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#spy-making-an-authorization-request). |
 
 ### Response
 
@@ -84,7 +87,7 @@ passport.use(new LineStrategy({
 |---|---|---|
 | accessToken | String | Access token. Valid for 30 days. |
 | refreshToken | String | Token used to get a new access token. Valid up until 10 days after the access token expires. |
-| idToken | String | JWT that includes information about the user. This field is returned only if `openid` is specified in the scope. For more information, see [ID tokens](https://developers.line.me/en/docs/line-login/web/integrate-line-login/#id-tokens). |
+| idToken | String | JWT that includes information about the user. This field is returned only if `openid` is specified in the scope. For more information, see [ID tokens](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#id-tokens). |
 
 ### Exmaple
 
@@ -94,10 +97,10 @@ First time, you need set channel id, secret and redirect uri at [Exmaple](https:
 
 - [passport-oauth2](https://github.com/jaredhanson/passport-oauth2)
 - [passport-facebook](https://github.com/jaredhanson/passport-facebook)
-- [LINE Web Login](https://developers.line.me/en/docs/line-login/web/integrate-line-login/)
+- [LINE Web Login](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/)
 
 ## License
 
 [The MIT License](https://raw.githubusercontent.com/ivanwei/passport-line-auth/master/LICENSE)
 
-Copyright(c)2018 Ivan Wei <[https://blog.ivanwei.co/](https://blog.ivanwei.co/)>
+Copyright(c)2019 Ivan Wei (Wei, Hong-Lin) <[https://blog.ivanwei.co/](https://blog.ivanwei.co/)>
