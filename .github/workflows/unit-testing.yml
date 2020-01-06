@@ -24,7 +24,7 @@ jobs:
     needs: testing
     runs-on: ubuntu-18.04
     env:
-      CODECOV_TOKEN: ${{secret.CODECOV_TOKEN}}
+      CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
