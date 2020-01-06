@@ -20,4 +20,4 @@ jobs:
           yarn install
           npm test
       - name: Publish coverage
-          npm run coverage
+        run: npm run coverage
