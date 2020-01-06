@@ -34,5 +34,6 @@ jobs:
           node-version: 12
       - name: Publish coverage
         run: |
+          yarn install
           npm run coverage
           npm run codecov
