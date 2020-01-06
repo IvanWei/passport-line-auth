@@ -4,7 +4,7 @@ on: ["pull_request"]
 jobs:
   testing:
     name: Testing
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         node: [12, 10, 8]
@@ -19,5 +19,19 @@ jobs:
         run: |
           yarn install
           npm test
+  code-coverage:
+    need: testing
+    runs-on: ubuntu-18.04
+    env:
+      CODECOV_TOKEN: ${{secret.CODECOV_TOKEN}}
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
       - name: Publish coverage
-        run: npm run coverage
+        run: |
+          npm run coverage
+          npm run codecov
