@@ -20,7 +20,8 @@ jobs:
           yarn install
           npm test
   code-coverage:
-    need: testing
+    name: Code coverage
+    needs: testing
     runs-on: ubuntu-18.04
     env:
       CODECOV_TOKEN: ${{secret.CODECOV_TOKEN}}
