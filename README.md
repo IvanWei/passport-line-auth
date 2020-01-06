@@ -1,6 +1,6 @@
 # passport-line-auth
 
-[![Build Status](https://github.com/IvanWei/passport-line-auth/workflows/Checks/badge.svg)](https://travis-ci.org/IvanWei/passport-line-auth)
+[![Build Status](https://github.com/IvanWei/passport-line-auth/workflows/Checks/badge.svg)](https://github.com/IvanWei/passport-line-auth/actions)
 [![codecov](https://codecov.io/gh/IvanWei/passport-line-auth/branch/master/graph/badge.svg)](https://codecov.io/gh/IvanWei/passport-line-auth)
 [![Greenkeeper badge](https://badges.greenkeeper.io/IvanWei/passport-line-auth.svg)](https://greenkeeper.io/)
 
