@@ -23,7 +23,7 @@ test('[Failure] Constructed with missing for channelID', (t) => {
       channelSecret: 'failure',
       callbackURL: 'http://failure.domain',
     }, () => {});
-  }, 'Channel\'s Id must be setting');
+  }, {message: 'Channel\'s Id must be setting'});
 });
 
 test('[Failure] Constructed with missing for channelSecret', (t) => {
@@ -32,7 +32,7 @@ test('[Failure] Constructed with missing for channelSecret', (t) => {
       channelID: 'failure',
       callbackURL: 'http://failure.domain',
     }, () => {});
-  }, 'Channel\'s Secret must be setting');
+  }, {message: 'Channel\'s Secret must be setting'});
 });
 
 test('[Failure] Constructed with missing for something', (t) => {
@@ -42,7 +42,7 @@ test('[Failure] Constructed with missing for something', (t) => {
       channelSecret: 'failure',
       callbackURL: 'http://failure.domain',
     });
-  }, 'OAuth2Strategy requires a verify callback');
+  }, {message: 'OAuth2Strategy requires a verify callback'});
 });
 
 test('[Pass] Checked authenticate', (t) => {
