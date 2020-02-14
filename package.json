@@ -34,9 +34,10 @@
     "passport-oauth2": "^1.5.0"
   },
   "devDependencies": {
-    "ava": "^2.0.0",
+    "ava": "^3.3.0",
     "body-parser": "^1.19.0",
     "codecov": "^3.5.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
