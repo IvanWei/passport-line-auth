@@ -146,6 +146,34 @@ test('Set authorization params (botPrompt: normal)', (t) => {
   t.is(newOptions.bot_prompt, options.botPrompt);
 });
 
+test('Set authorization params (prompt: null)', (t) => {
+  const options = {
+    channelID: 'fakeId',
+    channelSecret: 'fakeSecret',
+    callbackURL: 'http://fake.domain',
+    prompt: null
+  };
+
+  const strategy = new LineStrategy(options, () => {});
+  const newOptions = strategy.authorizationParams(options);
+
+  t.is(newOptions.prompt, undefined);
+});
+
+test('Set authorization params (prompt: consent)', (t) => {
+  const options = {
+    channelID: 'fakeId',
+    channelSecret: 'fakeSecret',
+    callbackURL: 'http://fake.domain',
+    botPrompt: 'consent'
+  };
+
+  const strategy = new LineStrategy(options, () => {});
+  const newOptions = strategy.authorizationParams(options);
+
+  t.is(newOptions.prompt, options.prompt);
+});
+
 test('Set authorization params (uiLocales: null)', (t) => {
   const options = {
     channelID: 'fakeId',
