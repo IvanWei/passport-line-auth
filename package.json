@@ -31,7 +31,7 @@
     "yarn": ">= 0.8.0"
   },
   "dependencies": {
-    "passport-oauth2": "^1.6.0"
+    "passport-oauth2": "^1.6.1"
   },
   "devDependencies": {
     "ava": "^3.3.0",
