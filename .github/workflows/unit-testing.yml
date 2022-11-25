@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node: [14, 16, 18, 19]
+        node: lts/*
     steps:
       - name: Git checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node}}
       - name: Run testing
@@ -27,9 +27,9 @@ jobs:
       CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
     steps:
       - name: Git checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Publish coverage
