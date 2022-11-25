@@ -1,8 +1,8 @@
-import http from 'http';
-import test from 'ava';
-import passport from 'passport';
+const http = require('http');
+const test = require('ava');
+const passport = require('passport');
 
-import LineStrategy from '../lib';
+const LineStrategy = require('../lib');
 
 test('[Pass] Constructed Passport for LINE', (t) => {
   const strategy = new LineStrategy({

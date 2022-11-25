@@ -1,6 +1,6 @@
-import test from 'ava';
+const test = require('ava');
 
-import lineAuthorizationError from '../lib/errors/lineAuthorizationError';
+const lineAuthorizationError = require('../lib/errors/lineAuthorizationError');
 
 test('Build error\'s object', (t) => {
   const customError = new lineAuthorizationError('test', 500);
