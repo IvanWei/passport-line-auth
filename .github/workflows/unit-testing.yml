@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node: lts/*
+        node: [14, 16, 18, 19]
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
@@ -15,6 +15,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node}}
+          cache: 'yarn'
       - name: Run testing
         run: |
           yarn install
@@ -32,6 +33,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'yarn'
       - name: Publish coverage
         run: |
           yarn install
