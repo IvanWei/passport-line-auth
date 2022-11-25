@@ -1,8 +1,8 @@
-export default {
+module.exports = {
   files: [
     './test/**/*.spec.js'
   ],
   require: [
-    'esm',
+
   ]
 };
