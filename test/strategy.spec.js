@@ -4,6 +4,12 @@ const passport = require('passport');
 
 const LineStrategy = require('../lib');
 
+test('[Failure] Constructed with missing for options', (t) => {
+  t.throws(() => {
+    new LineStrategy(null, () => {});
+  }, {message: 'Options must be setting.'});
+});
+
 test('[Pass] Constructed Passport for LINE', (t) => {
   const strategy = new LineStrategy({
     channelID: 'fakeId',
@@ -23,7 +29,7 @@ test('[Failure] Constructed with missing for channelID', (t) => {
       channelSecret: 'failure',
       callbackURL: 'http://failure.domain',
     }, () => {});
-  }, {message: 'Channel\'s Id must be setting'});
+  }, {message: 'Channel\'s Id must be setting.'});
 });
 
 test('[Failure] Constructed with missing for channelSecret', (t) => {
@@ -32,7 +38,7 @@ test('[Failure] Constructed with missing for channelSecret', (t) => {
       channelID: 'failure',
       callbackURL: 'http://failure.domain',
     }, () => {});
-  }, {message: 'Channel\'s Secret must be setting'});
+  }, {message: 'Channel\'s Secret must be setting.'});
 });
 
 test('[Failure] Constructed with missing for something', (t) => {
@@ -165,7 +171,7 @@ test('Set authorization params (prompt: consent)', (t) => {
     channelID: 'fakeId',
     channelSecret: 'fakeSecret',
     callbackURL: 'http://fake.domain',
-    botPrompt: 'consent'
+    prompt: 'consent'
   };
 
   const strategy = new LineStrategy(options, () => {});
