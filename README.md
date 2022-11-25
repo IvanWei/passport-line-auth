@@ -79,9 +79,9 @@ passport.use(new LineStrategy({
 | channelSecret | String | Required | | Channel's secret by LINE |
 | callbackURL | String | Required | | URL that users are redirected to after authentication and authorization. Must match one of the the callback URLs registered for your channel in the [console](https://developers.line.biz/console/). |
 | scope | Array | Required | `['profile', 'openid']` | Permissions granted by the user. Set value to either profile, openid or email. If  |
-| botPrompt | String | Optional | null | Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/web/link-a-bot). |
-| prompt | String | Optional | null | Used to force the consent screen to be displayed even if the user has already granted all requested permissions. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/web/link-a-bot). |
-| uiLocales | String | Optional | null | Display language for LINE Login screens. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/web/integrate-line-login/#spy-making-an-authorization-request). |
+| botPrompt | String | Optional | null | Displays an option to add a bot as a friend during login. Set value to either normal or aggressive. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/integrate-line-login/#making-an-authorization-request). |
+| prompt | String | Optional | null | Used to force the consent screen to be displayed even if the user has already granted all requested permissions. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/integrate-line-login/#making-an-authorization-request). |
+| uiLocales | String | Optional | null | Display language for LINE Login screens. For more information, see [Linking a bot with your LINE Login channel](https://developers.line.biz/en/docs/line-login/integrate-line-login/#making-an-authorization-request). |
 
 ### Response
 
